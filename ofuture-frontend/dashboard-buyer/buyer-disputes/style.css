@@ -1,0 +1,253 @@
+/* ============================================================
+   Disputes List Page - Buyer Dashboard
+   ============================================================ */
+
+.disputes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dispute-card {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 20px;
+  align-items: center;
+  border-left: 4px solid #2563eb;
+  transition: all 0.2s;
+}
+
+.dispute-card:hover {
+  box-shadow: 0 15px 40px rgba(15, 23, 42, 0.1);
+  transform: translateY(-2px);
+}
+
+.dispute-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 12px;
+}
+
+.dispute-id {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  word-break: break-all;
+}
+
+.dispute-reason {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 6px;
+  line-height: 1.5;
+  max-width: 400px;
+}
+
+.dispute-info {
+  display: flex;
+  gap: 24px;
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+.dispute-info-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dispute-info-item label {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.dispute-info-item span {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.dispute-card-status {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.open {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.status-badge.in_progress {
+  background: #fed7aa;
+  color: #92400e;
+}
+
+.status-badge.resolved {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-badge.closed {
+  background: #fee2e2;
+  color: #7f1d1d;
+}
+
+/* Current backend statuses */
+.status-badge.pending {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.status-badge.resolved_released {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-badge.resolved_refunded {
+  background: #fee2e2;
+  color: #7f1d1d;
+}
+
+.status-badge.rejected {
+  background: #fee2e2;
+  color: #7f1d1d;
+}
+
+.dispute-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dispute-actions .btn {
+  padding: 8px 12px;
+  font-size: 13px;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f8fafc;
+  border-radius: 16px;
+}
+
+.empty-state-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+  opacity: 0.3;
+}
+
+.empty-state-text {
+  font-size: 16px;
+  color: #0f172a;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.empty-state-description {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .dispute-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .dispute-card-status {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dispute-actions {
+    flex-direction: row;
+    margin-top: 8px;
+  }
+
+  .dispute-actions .btn {
+    flex: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .dispute-info {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .dispute-card-status {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* ============================================================
+   Filter Tabs - Các nút lọc trạng thái (Tất cả, Đang mở...)
+   ============================================================ */
+.tabs {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px; /* Tránh bị cắt mất box-shadow */
+}
+
+.tab-btn {
+  padding: 8px 20px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  border-radius: 24px; /* Bo tròn dạng viên thuốc */
+  color: #64748b;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.tab-btn:hover {
+  background: #f8fafc;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+
+.tab-btn.active {
+  background: #2563eb; /* Nút đang chọn chuyển sang màu xanh */
+  color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+  font-weight: 600;
+}
+
+/* ============================================================
+   Nút "Xem chi tiết" trong thẻ Tranh chấp
+   ============================================================ */
+.dispute-actions .btn {
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 8px; /* Khớp với style toàn cục */
+}
+
+/* Thêm khoảng cách nếu responsive nhỏ lại */
+@media (max-width: 1024px) {
+  .dispute-actions .btn {
+    padding: 12px 20px; /* To hơn chút trên mobile để dễ bấm */
+  }
+}
